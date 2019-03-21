@@ -1,0 +1,435 @@
+% ****** Start of file aipsamp.tex ******
+%
+%   This file is part of the AIP files in the AIP distribution for REVTeX 4.
+%   Version 4.1 of REVTeX, October 2009
+%
+%   Copyright (c) 2009 American Institute of Physics.
+%
+%   See the AIP README file for restrictions and more information.
+%
+% TeX'ing this file requires that you have AMS-LaTeX 2.0 installed
+% as well as the rest of the prerequisites for REVTeX 4.1
+%
+% It also requires running BibTeX. The commands are as follows:
+%
+%  1)  latex  aipsamp
+%  2)  bibtex aipsamp
+%  3)  latex  aipsamp
+%  4)  latex  aipsamp
+%
+% Use this file as a source of example code for your aip document.
+% Use the file aiptemplate.tex as a template for your document.
+\documentclass[%
+ aip,
+% jmp,
+% bmf,
+% sd,
+% rsi,
+ amsmath,amssymb,
+%preprint,%
+ reprint,%
+%author-year,%
+%author-numerical,%
+% Conference Proceedings
+]{revtex4-1}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+%\usepackage[mathlines]{lineno}% Enable numbering of text and display math
+%\linenumbers\relax % Commence numbering lines
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+
+\begin{document}
+
+\preprint{AIP/123-QED}
+
+\title{Impact of binary social status with hierarchical punishment on the evolution of cooperation in the spatial prisoner's dilemma game}
+% Force line breaks with \\
+
+\author{Yunya Xie}
+ %\altaffiliation[Also at ]{Coordinated Innovation Center for Computable Modeling in Management Science}%Lines break automatically or can be forced with \\
+\author{Shuhua Chang}%
+ \email{shuhua55@126.com}
+
+
+\author{Zhipeng Zhang}
+ %\homepage{http://www.Second.institution.edu/~Charlie.Author.}
+%\affiliation{%
+%Second institution and/or address%\\This line break forced% with \\
+%}%
+
+\affiliation{
+Coordinated Innovation Center for Computable Modeling in Management Science, Tianjin University of Finance and Economics, Tianjin 300222, China%\\This line break forced with \textbackslash\textbackslash
+}%
+
+\date{\today}% It is always \today, today,
+             %  but any date may be explicitly specified
+
+\begin{abstract}
+People live in a hierarchical society nowadays. Generally, the social status for agents in this hierarchical society could be divided into two groups (i.e. the binary social status): disadvantaged group and powerful group. In this paper, the powerful ability is reflected to be a punisher, and this class privilege cannot be imitated by the disadvantaged agent. On this base, we further extend the theory of asymmetric evolutionary game with hierarchical punishment and study its impact on the evolution of cooperation. We show that the hierarchical punishment with square lattices connection can promote the cooperation. Specifically, there is a reverse phenomenon of the cooperation for different social fines with the increasing temptation. The living cooperators survive not only by forming clusters, but also by attaching to the punishers. Interestingly, the powerful group is not the more the better, since there is an optimal initial fraction for the excitation of cooperation. Monte Carlo simulations for the cooperation on the island of powerful agents reveal that the influence range of the punitive right is limited, but the powerful agent squint towards this special right. Taken together, we deeply study the mechanism of the hierarchical punishment to the cooperation. The new recognitions may provide some novel perspectives for engineering better social systems.
+\end{abstract}
+
+\maketitle
+
+\begin{quotation}
+The ``lead paragraph'' is encapsulated with the \LaTeX\
+\verb+quotation+ environment and is formatted as a single paragraph before the first section heading.
+(The \verb+quotation+ environment reverts to its usual meaning after the first sectioning command.)
+Note that numbered references are allowed in the lead paragraph.
+%
+The lead paragraph will only be found in an article being prepared for the journal \textit{Chaos}.
+\end{quotation}
+
+\section{\label{sec:level1}Introduction}
+
+Cooperation, in which people pay costs to benefit others, maintains the stability of human societies \cite{81Science,97MIT,71QRB}. However, why selfish players are willing to donate the collective income at individual costs remains unclear. Fortunately, evolutionary game provides a receivable theory to address the cooperation among selfish individuals [82CUP, 97MIT, 00PUP, 06HUP]. Among the theories of evolutionary game, the prisoner's dilemma (PD) game, in particular, is considered as a classical paradigm for studying the emergence of cooperation [84NY].This is because the PD game well depicts the social dilemma: it promises a defecting individual the highest income, and the cooperation cannot be sustained anymore in the well-mixed situation. In recent years, a series of seminal theoretical mechanisms for cooperation in the PD game are introduced [15PlosOne xia,15SR ke].
+
+Besides many studies addressing network complexity as one of the main reasons for promoting cooperation, several approaches are also meaningful. The primary theories can be divided into five classical and prominent rules which have been summarized by Nowak[06Science]. Some of the typical examples include the strategic complexity [02Science], reputation [16PLA Xia], punishment [13SR zhen], reward [2010EPL Attila], as well as inhomogeneity [06NJP, 15PlosOne ke].
+
+In addition, the asymmetry among players has recently received substantial attention [16PRE, 14PRE, 14EPL]. In nature, asymmetry frequently arises in interspecies interactions [82CUP] and between subpopulations [96JMB, 87TPB, 81AB, 76OUP]. In fact, this diversity is presented in not only animal world but also human society in which the asymmetric interaction is always described as the diversity in social status. The studies of asymmetry range from the asymmetry of learning, the teaching activities [07EL] even to the impact of asymmetric influence on the dynamics of the PD game [02PRE]. In addition, the asymmetric game is usually simply distinguished with the distinct payoff matrix or fitness calculation mechanism [17PA shenchen, 01JEEM, 16JET]. The asymmetry can also be accounted by generating random variables [08PRE Perc] or is introduced into spatial multigames [2018EPL Perc]. With humans, asymmetry may result from the possession of wealth and the assignment of social roles [10JTB, 09JTB] in a hierarchical society. Due to the environmental effects and other possible sources of heterogeneity, the microscopic interactions of the players are nearly always asymmetric. Generally speaking, the hierarchical society with binary social status can be divided into disadvantaged group and powerful group. For instance, the social roles and status are not the same for workers and firms, offspring and parent as well as general public and regulator. It is obviously for the regulator and general public, in which the regulators usually take additional measures such as the punishment or award to satisfy the collective interest. Furthermore, the punishment can be used as a means of maintaining hierarchy. From this perspective, disadvantaged group and powerful group are always co-existence in the society, and there is an asymmetric game with hierarchical punishment in the interactions between these two groups. It is interesting to study the cooperation between different social groups by considering the evolutionary game with this asymmetric social status.
+
+In this paper, we introduce the additional measure of punishment for the powerful players as their extrinsically determined property, and study the resulting asymmetric interaction on the cooperation. We do the simulation with the evolutionary PD game in this environment, where the powerful and the disadvantaged players together constitute the binary social. Specifically, the disadvantaged players in group A have two strategies, cooperation and defection, as well as the powerful players in group B who possess a higher social status, have an additional social punishment strategy. Importantly, the status of each player is determined only once at the beginning of the game and should not be changed later. This implies that the disadvantaged agents are hard to exceed the social state to be a powerful one in the hierarchical society. Therefore, this game mechanism differs distinctly from the classical evolutionary game with punishment of peers [13SR zhen, 17PNAS zhen, 2010EPL Attila], in which the additional independent strategy (eg. the punishment strategy) can be freely imitated by players. We study the evolutionary asymmetry game on the simple square lattice as they provide the entry point for exploring the consequence of topological structure on the evolution of cooperation. According to the outcomes of the simulation experiment, one finds that the cooperation is enhanced as the social fine increases at a large range of temptation. Moreover, there is a reverse phenomenon about the fraction of cooperators for different punishment fine with the increase of temptation, and it is tested to be influenced by the competition between cooperators and punishers in the powerful group B. Furthermore, the role of the punishers who are confined to the powerful group is not as strong as expected. Although the enhancement of the social fine has a good influence on the cooperation, the increasing number of the powerful players does not always have the positive effect. Interestingly, there is an optimal distribution ratio of the powerful group for the promotion of the cooperation. With the model, the influence of the centralization of the powerful group is tested by setting the powerful group as an island at the beginning of the game.
+
+The remainder of this paper is structured as follows. In Section 2, we devote to the description of spatial prisoner's dilemma game, social punishment in the PD game and the properties of strategic asymmetry of players on the square lattice. Subsequently, the main simulation results and discussions are presented in Section 3, and the conclusion is summarized in Section 4.
+
+
+\section{\label{sec:level1}Evolution game model and dynamics}
+
+The asymmetric game is characterized by the existence of binary social status, i.e. there are two types of groups disadvantaged group (also known as group A) and powerful group (also known as group B). In the disadvantaged group, each pairwise interaction among the players is described as the evolutionary prisoner's dilemma (PD) game. We employ the weak PD game here, which is characterized by the reward R = 1 for the mutual cooperation (C) and the punishment P = 0 for the mutual defection (D). Meanwhile, if one cooperator competes with one defector, the cooperator gains the sucker's payoff S = 0 while the defector receives the defection temptation T = b. In the powerful group, some agents have an additional right which is described as the social punishment (Pu) in the PD game [13SR wang]. When these punishers are playing against defectors, the punishers cost $\gamma$ to inflict a fine $\beta$ on the defectors. Although the punishers can exist independently, they actually act as the special cooperators when they do not face the defectors. The interactions between the agents and the relative payoffs can be seen in Table 1.
+
+
+add Table1 !!!
+
+The agents are considered to play the asymmetric game on a square lattice of size N = L $\times$ L with periodic boundary conditions, and each player occupies the node of this interaction network. As the initial condition, half of the population is stochastically chosen distributed in the group A and the other half is distributed in the group B. In the two groups, each agent chooses the C and D strategies or the C, D and Pu strategies with equal probability.
+
+Evolution has been simulated by employing the finite population analogue to replicator dynamics [05PRL replicator, 07PRL replicator]. At each time step, each node \emph{i} in the network plays with all her neighbors, and gets an accumulated payoff P$_{\emph{i}}$. Then, the player randomly picks up one of her neighbors, and makes a comparison with neighbor \emph{j}. For the next step, player \emph{i} with a bigger payoff will keep her strategy. On the contrary, it will copy \emph{j}'s strategy with a probability proportional to the payoff difference:
+\begin{eqnarray}
+\Pi_{i\rightarrow j}= \frac{P_j-P_i}{max\{k_i,k_j\}\triangle},
+\label{eq:one}
+\end{eqnarray}
+
+where k$_{\emph{i}}$ and k$_{\emph{j}}$ are the degrees of agents \emph{i} and \emph{j}, respectively, and k$_{\emph{i}}$ = k$_{\emph{j}}$ =4 for the square lattices. Here $\triangle$ stands for the maximum possible payoff difference from any two players. The asymmetric effect is presented through the possession of the selection right of the punishment strategies. It is worth noting that strategy C and strategy D can be imitated randomly between the disadvantaged players in group A and the powerful players in group B. However, the special strategy Pu in the powerful group is not reproducible to the disadvantage player. In other words, the higher social state for the agent in the powerful group is embodied in the opportunity to be a punisher. Moreover, the intensity of the asymmetry is reflected by the value of the fine $\beta$.?
+
+ci chu ti shi cuo wu
+
+The simulations are performed with 10$^{5}$ time-steps until a stationary state has been reached. After this sufficiently long relaxation times, the average fractions of cooperators ($\rho_C$) and defectors ($\rho_D$) in the population are determined after additional 10$^{4}$ time-steps. Moreover, since the difference of the initial conditions could introduce additional noise, the outcomes have been averaged over 30 independent runs when the system is terminated into a uniform absorbing state.
+
+
+\section{\label{sec:level1}Results and analysis}
+
+Firstly, we focus on the macroscopic response of the fraction of cooperators $\rho_C$ at the steady state. Meanwhile, we study whether asymmetric effect which is caused by the binary social status can favor cooperation or not.
+
+In Fig.1, we simulate the PD game on the square lattice for different values of $\beta$, since this combination provides lower level of cooperation for the common settings of the spatial game. We use traditional model for comparison in which the punishment and the asymmetry are not considered. When the value of the punishment is not large (i.e. $\beta \leqslant$ 0.3 ), the level of the cooperation does not improve by this weak asymmetry. The fraction of pure cooperators at the stationary state suddenly decreases and soon becomes zero for very small values of the temptation b. This is partly because the punishers are not accounted into the fraction of pure cooperators by considering the difference of the social state between them. In fact, the punishment strategy will cost more social resources, and it is not a preferred strategy for the overall benefit of the system. Meanwhile, the fraction of the cooperators at the initial state is not the same for the traditional and the asymmetric situations (there are1/2 percent of cooperators in the traditional model and there are 5/12 percent of cooperators in asymmetric model).
+
+As shown in Fig.1, a mass of cooperators can survive for larger rang of b by improving the value of the punishment $\beta$. Simply increasing $\beta$ can be interpreted as to maintain the proportion of two groups and increase the intensity of the asymmetry. Overall, when b is smaller than the threshold 1.05, social fine $\beta$ is obviously divided into two classes: $\beta \geqslant 0.5$ and $\beta \leqslant 0.3$ . Unexpected, drastic punishment does not raise the level of cooperation when the temptation is small. When b is larger than the threshold, the cooperation cannot be promoted when $\beta \leqslant 0.3$. In a word, the fraction of cooperation drops more sharply for the class of $\beta \leqslant 0.3$. In addition, there is a reverse phenomenon that$\rho_C$ derived by $\beta \geqslant 0.5$ is gradually over the fraction derived by $\beta \leqslant 0.3$. Evidently, this phenomenon is beyond our expectation that the punishment and asymmetry are always effective in promoting cooperation. It may be caused by the following two reasons: the first reason is that the punishers are not included in the total number of $\rho_C$; the second reason is the limitation of the spread of Pu strategy. For an in-depth study of the reverse phenomenon, we will give a more detailed discussion later.
+
+Fig.1
+
+Fig 1. Fraction of cooperators $\rho_C$ on the square lattice changes with temptation to defect b in the prisoner's dilemma game for different values of the social fine $\beta$. The results are obtained with and without (for traditional condition) uniformly distributed social status of punishment. Presented results are obtained for N=10$^{4}$ nodes, $\emph{k}$=4 and $\gamma$=0.1.
+
+
+In order to intuitively study the survival of cooperators in the disadvantage and the powerful groups, we present that $\rho_C$ varies in dependence on the temptation to defect b for two groups respectively in Fig.2. It can be observed that for both two groups, cooperators will be decimated with the increase of the temptation, and the life of the cooperators could be lengthened with the increase of the intensity of the asymmetry. However, the difference is that the reverse phenomenon as shown in Fig.1 can be only observed in Fig.2(b) again. From this perspective, the abnormal of $\rho_C$ in the powerful group is the main reason for the puzzling reverse phenomenon. For the disadvantaged group [see Fig.2(a)], the defectors who are connected to the powerful group will be punished with a certain probability. When the punishment fine (i.e. the intensity of symmetry) increases, it is bound to have more defectors into cooperators. However, in the powerful group [see Fig.2(b)], $\rho_C$decreases with the stronger punishment when the temptation is not powerful. This does not mean the defectors start to mushroom. Actually, the decrease in cooperators resultes from the increase of punisher. When b<1.12, the number of cooperators is not small, and a part of them will be replaced by the punishers. However, with the increase of the temptation, the cooperators are rare if there is no punishment. At this time, the increase of the punishment fine will increase the chance of the individual's choosing cooperation. So overall, it seems that there will be a cooperation ratio inversion phenomenon when the temptation is weaker than the threshold.
+
+fig.2
+
+Fig 2. Fraction of cooperators $\rho_C$ on the square lattice in dependence on the temptation to defect b, as obtained for disadvantaged group and the powerful group, respectively. The presented results are also obtained in the PD game, and the other parameter values are N=$10^{4}$ nodes, $ \emph {k}$=4 and $\gamma$=0.1.
+
+Then, we inspect the snapshots from the microscopic point of view when the system has reached a dynamical equilibrium. Figure 3 displays the survival of the agents under different living conditions ($\beta$= 0.1, 0.5, 0.9 and b = 1.1, 1.2, 1.5, respectively).
+
+As shown in Fig.3(a), the numbers of cooperators and defectors are evenly matched when b=1.1 and $\beta$= 0.1. However, the punisher cannot survive under such a condition. The cooperators who belong to the two groups fuse each other and form the steady cooperation clusters to resist the invasion of the defectors. Meanwhile, the defectors who separately belong to two groups are also well mixed. When b=1.1 and the punishment fine$\beta$ increases, the defectors gradually vanish. At the same time, more and more punishers survive in the cooperation clusters. Overall, $\rho_C$ is not significantly improved on the whole.
+
+In the case of the larger b, cooperators will be ultimately extinct and the system falls into the pure D state with a small fine. Only if $\beta$ is big enough, cooperators survive by leeching on to the Pu clusters. As shown in Fig.3, for the same b, the bigger $\beta$ is, the more the punishers are generated. Therefore, the number of survival cooperators who are connected to the punishers increases. This not only validates the inference in Fig.2, but also reflects the mode of action of the powerful individuals, i.e., the punishers save themselves by forming the clusters and affect the surrounding individuals to choose the cooperative strategy.
+
+Fig.3
+
+Fig.3. Characteristic snapshots of cooperators, defectors and punishers for different fines $\beta$ and temptations b. Columns from left to right: $\beta$= 0.1, $\beta$= 0.5 and $\beta$= 0.9, and Rows from top to bottom: b=1.1, b=1.2 and b=1.5. Colors black and red depict the locations of C and D players in the disadvantaged group A, and colors gray, orange and white depict the locations of C, D and Pu players in the powerful group B, respectively. The depicted results in all panels are obtained for k=4 and $\gamma$=0.1 on a 100$\times$100 square lattice.
+
+As shown in Fig.3, the punishment strategy in the powerful group has the role of promoting cooperation. Following this approach, one may consider that whether more powerful groups at the initial state will induce more cooperations. Furthermore, can a full cooperation state be obtained?
+
+In this part, we try to answer these questions by considering the impact of initial fraction of the powerful group B in Fig.4. As it shows, the environment is most conductive to the emergence and maintenance of cooperation strategy when?the fraction of the group B at the initial state $\rho_{B}^{i}$ =0.56. This means that the powerful agents are not that the more, the better, and there is an optimal value for the existence of cooperators. When $\rho_{B}^{i}$<0.4, the curve of $\rho_{C}$is relatively flat. Then, in the range of 0.4<$\rho_{B}^{i}$< 0.56, the number of cooperators starts to mushroom and eventually reaches the peak. After this increase,$\rho_{C}$ drops quickly to $\rho_{C}\approx0.2$. We can understand this phenomenon as follows: when there are few powerful groups B in the system, the punisher and the cooperator in group B can mutually transform one into another. $\rho_{C}$in the system maintains balance or improves steady. However, when $\rho_{B}^{i}$is beyond a certain range, group B dominates the system and the asymmetric interaction between the disadvantage and the powerful groups decreases greatly. The punishers in the powerful group proceed a barbarian growth and consequently reduces the chance of survival to cooperators.
+
+fig.4
+
+Fig.4. Fraction of cooperators as a function of the fraction of group B at the initial state. Group B consists of the powerful agents, and this powerful group is uniformly distributed at the initial state. $\rho_{C}$ is derived over 30 independent runs when the system reaches a statistical stable state. The depicted curve is obtained for N=104,$\gamma$=0.1,$\beta$=0.5 and b=1.1.
+
+Finally, we discuss a type of concerned issue to managers in the real society: how do the centralized powerful agents affect the individuals around them? We describe the problem by presenting a series of snapshots of strategy evolutions. At the special prepared initial state, the powerful group with 20$\times$20 agents is located at the center of the ocean of disadvantaged agents. The comparative analysis is plotted in Fig. 5, where all runs are obtained for $\gamma$= 0.1 and N=104. At the initial state, the agents with two or three strategies are distributed evenly at their own groups for $\beta$= 0.5 [see Fig.5(a)] and $\beta$= 0.9 [see Fig.5(b)], respectively. After $10^{3}$ steps, as shown in Fig.5(a2), a few cooperators survive in the disadvantaged group, and most of them are located around the island of powerful agents. The centralized powerful right only plays a limited role in surrounding disadvantage agents, and the cooperative behavior cannot wildly spread. On the other hand, the cooperative and the defective strategies in the powerful group are all greatly reduced, and the island is almost occupied by the punisher. That is the agent with special right (the right of punishment in this paper) who is more willing to enforce it. When the fine increases to $\beta$=0.9, there are more cooperators to survive. This is because the agents who is around the powerful group are more inclined to adopt a cooperative strategy with the increase of $\beta$. Conversely, the survival probability for punishers decreases due to the loss of fitness. In further evolution, the fraction of three strategies becomes steady. As shown in Fig.5(b), with the limitation of the influence range, the large numbers of punishers do not induce more cooperative behaviors obviously.
+
+fig.5
+
+Fig.5 Evolution of typical spatial patterns, as obtained for prepared initial conditions when using N=$10^{4}$, k=4 and $\gamma$=0.1. The images show the case when an island of 20$\times$20 powerful agents (in the green box) is initially presented among the ocean of disadvantaged agents. Colors black, orange and white depict the locations of C, D and Pu players, respectively.
+
+\section{\label{sec:level1}Conclusion}
+To sum up, we have studied the impact of asymmetric game which is caused by the binary social states with hierarchical punishment on the evolution of cooperation. In particular, we have primarily considered the weak prisoner's dilemma on square lattices. The binary social state is introduced by the ability to choose cooperative and defective strategies (for disadvantaged agents in group A) or additional social punishment strategy (for powerful agents in group B). According to the outcomes of Monte Carlo simulations, we conclude that the asymmetric interaction for the disadvantage and powerful agents promotes the cooperation in PD game environments.
+
+Specifically, there is a reverse phenomenon of the fraction of cooperation with the increase of temptation for different social fines. This phenomenon is verified to be influenced by the competition between cooperators and punishers in the powerful group. From the microscopic point of view, the cooperators survive by forming the cooperation clusters when the temptation and fine are small. As both of the temptation and fine increase, the punisher begins to mushroom, and the cooperators exist by attaching to the Pu clusters around. We also show that the continuously increasing proportion of the powerful group at the initial state cannot always enhance the cooperation. There exist the optimal proportion of the powerful group to promote the cooperation. What is more, we present the strategy evolutions for an island with powerful agents immersed in the ocean of disadvantaged groups. It is shown that the influence range of the powerful agents is limited, but the agents are more willing to enforce their special punitive right. We hope that this research will inspire future studies aimed at clarifying the role of social status with hierarchical punishment for other types of games and networks, and further promote quantitative research with methods from physics which keenly reflects the social problems.
+
+\section{\label{sec:level1}Reference}
+
+\begin{thebibliography}{99}
+
+\bibitem{81Science}
+Axelrod R, Hamilton WD,
+\newblock {{T}he evolution of cooperation.}
+\newblock Science, 211:1390–1396 (1981).
+
+\bibitem{97MIT}
+Weibull JW,
+\newblock {Evolutionary Game Theory.}
+\newblock (MIT Press, Cambridge, MA, 1997).
+
+\bibitem{71QRB}
+Axelrod R, Hamilton WD,
+\newblock {The evolution of reciprocal altruism.}
+\newblock Q Rev Biol 46:35–57(1971).
+
+\bibitem{82CUP}
+Smith, J. M. ,
+\newblock {Evolution and the Theory of Games.}
+\newblock Cambridge university press (1982).
+
+\bibitem{00PUP}
+Gintis, H.,
+\newblock {Game Theory Evolving.}
+\newblock Princeton University Press, Princeton (2000).
+
+\bibitem{06HUP}
+Nowak, M. A.,
+\newblock {Evolutionary Dynamics.}
+\newblock Harvard University Press, Cambridge, MA  (2006).
+
+\bibitem{84NY}
+R. Axelrod,
+\newblock {The Evolution of Cooperation.}
+\newblock Basic Books, New York (1984).
+
+\bibitem{93PRE}
+Kessler DA, Levine H.,
+\newblock {Pattern formation in Dictyostelium via the dynamics of cooperative biological entities.}
+\newblock Phys. Rev. E 48, 4801–4804.(1993).
+
+\bibitem{98EE}
+Iwasa Y, Nakamaru M, Levin SA.,
+\newblock {Allelopathy of bacteria in a lattice population: competition between colicin sensitive and colicin-producing strains.}
+\newblock  Evol. Ecol. 12, 785–802(1998).
+
+\bibitem{92Nature}
+Nowak MA, May RM,
+\newblock {Evolutionary games and spatial chaos.}
+\newblock  Nature 359, 826–829(1992).
+
+\bibitem{07PR}
+Szabo´ G, Fa´th G.,
+\newblock {Evolutionary games on graphs.}
+\newblock  Phys. Rep. 446, 97–216(2007).
+
+\bibitem{09PLR}
+Roca CP, Cuesta JA, Sa´nchez A.,
+\newblock {volutionary game theory: temporal and spatial effects beyond replicator dynamics.}
+\newblock  Phys. Life Rev. 6, 208–249(2009).
+
+\bibitem{06Science}
+Nowak, M. A.,
+\newblock {Five rules for the evolution of cooperation.}
+\newblock  Science 314, 1560–1563.(2006).
+
+\bibitem{02Science}
+C. Hauert, S. De Monte, J. Hofbauer, and K. Sigmund,
+\newblock {Volunteering as red queen mechanism for cooperation in public goods games.}
+\newblock  Science 296(5570), 1129-1132 (2002).
+
+\bibitem{06NJP}
+M. Perc,
+\newblock {Coherence resonance in a spatial prisoner’s dilemma game.}
+\newblock  New J. Phys. 8( 22) (2006).
+
+\bibitem{14PRE}
+Wang, Z., Szolnoki, A., Perc, M.,
+\newblock {Different perceptions of social dilemmas: Evolutionary multigames in structured populations}
+\newblock  Phys. Rev. E 90, 032813 (2014).
+
+\bibitem{14EPL}
+Szolnoki, A., Perc, M,
+\newblock {Coevolutionary success-driven multigames.}
+\newblock  Europhysics Lett. 108, 28004 (2014).
+
+\bibitem{16PRE}
+Amaral, M. A., Wardil, L., Perc, M., da Silva, J. K. ,
+\newblock {Evolutionary mixed games in structured populations: Cooperation and the benefits of heterogeneity.}
+\newblock  Phys. Rev. E 93, 042304 (2016).
+
+\bibitem{07EL}
+A. Szolnoki and G. Szab´o,
+\newblock {balabala.}
+\newblock  Europhys. Lett. 77, 30004 (2007).
+
+\bibitem{02PRE}
+B. J. Kim, A. Trusina, P. Holme, P. Minnhagen, J. S. Chung, and M. Y. Choi,
+\newblock {balabala.}
+\newblock  Phys. Rev. E 66, 021907 (2002).
+
+\bibitem{17PA shenchen}
+Shen, C., Li, X., Shi, L., Deng, Z.,
+\newblock {Asymmetric evaluation promotes cooperation in network population. Physica A: Statistical Mechanics and its Applications.}
+\newblock  Physica A: Statistical Mechanics and its Applications, 474, 391-397 (2017).
+
+\bibitem{01JEEM}
+List J A, Mason C F.,
+\newblock {Optimal institutional arrangements for transboundary pollutants in a second-best world: evidence from a differential game with asymmetric players.}
+\newblock  Journal of Environmental Economics and Management 42.3 : 277-296. (2001).
+
+\bibitem{76OUP}
+Dawkins R.,
+\newblock {The Selfish Gene.}
+\newblock   Oxford University Press (1976).
+
+\bibitem{81AB}
+Schuster P. and Sigmund K.,
+\newblock {Coyness, philandering and stable strategies.}
+\newblock Animal Behaviour, 29(1):186 – 192 (1981).
+
+\bibitem{87TPB}
+Maynard Smith J. and Hofbauer J.,
+\newblock { The “ battle of the sexes ” : A genetic model with limit cycle behavior.}
+\newblock  Theoretical Population Biology, 32(1):1 – 14 (1987).
+
+\bibitem{96JMB}
+Hofbauer J.,
+\newblock {Evolutionary dynamics for bimatrix games: A hamiltonian system?}
+\newblock Journal of Mathematical Biology, 34(5 – 6):675 – 688 (1996).
+
+\bibitem{10JTB}
+Ohtsuki H.,
+\newblock {Stochastic evolutionary dynamics of bimatrix games.}
+\newblock Journal of Theoretical Biology, 264(1):136 – 142 (2010).
+
+\bibitem{09JTB}
+Marshall J. A. R.,
+\newblock {The donation game with roles played between relatives.}
+\newblock  Journal of Theoretical Biology, 260(3):386 – 391 (2009).
+
+\bibitem{16JET}
+Veller, C.,  Hayward, L. K.
+\newblock {Finite-population evolution with rare mutations in asymmetric games}
+\newblock   Journal of Economic Theory, 162, 93-113 (2016).
+
+
+
+
+\bibitem{07EL}
+A. Szolnoki and G. Szab´o,
+\newblock {balabala.}
+\newblock  Europhys. Lett. 77, 30004 (2007).
+
+\bibitem{07EL}
+A. Szolnoki and G. Szab´o,
+\newblock {balabala.}
+\newblock  Europhys. Lett. 77, 30004 (2007).
+
+\bibitem{07EL}
+A. Szolnoki and G. Szab´o,
+\newblock {balabala.}
+\newblock  Europhys. Lett. 77, 30004 (2007).
+
+\bibitem{07EL}
+A. Szolnoki and G. Szab´o,
+\newblock {balabala.}
+\newblock  Europhys. Lett. 77, 30004 (2007).
+
+\bibitem{07EL}
+A. Szolnoki and G. Szab´o,
+\newblock {balabala.}
+\newblock  Europhys. Lett. 77, 30004 (2007).
+
+\bibitem{07EL}
+A. Szolnoki and G. Szab´o,
+\newblock {balabala.}
+\newblock  Europhys. Lett. 77, 30004 (2007).
+
+\bibitem{07EL}
+A. Szolnoki and G. Szab´o,
+\newblock {balabala.}
+\newblock  Europhys. Lett. 77, 30004 (2007).
+
+\bibitem{07EL}
+A. Szolnoki and G. Szab´o,
+\newblock {balabala.}
+\newblock  Europhys. Lett. 77, 30004 (2007).
+
+\bibitem{07EL}
+A. Szolnoki and G. Szab´o,
+\newblock {balabala.}
+\newblock  Europhys. Lett. 77, 30004 (2007).
+
+\bibitem{07EL}
+A. Szolnoki and G. Szab´o,
+\newblock {balabala.}
+\newblock  Europhys. Lett. 77, 30004 (2007).
+
+\bibitem{07EL}
+A. Szolnoki and G. Szab´o,
+\newblock {balabala.}
+\newblock  Europhys. Lett. 77, 30004 (2007).
+
+\bibitem{07EL}
+A. Szolnoki and G. Szab´o,
+\newblock {balabala.}
+\newblock  Europhys. Lett. 77, 30004 (2007).
+
+\bibitem{07EL}
+A. Szolnoki and G. Szab´o,
+\newblock {balabala.}
+\newblock  Europhys. Lett. 77, 30004 (2007).
+
+\bibitem{07EL}
+A. Szolnoki and G. Szab´o,
+\newblock {balabala.}
+\newblock  Europhys. Lett. 77, 30004 (2007).
+
+\bibitem{07EL}
+A. Szolnoki and G. Szab´o,
+\newblock {balabala.}
+\newblock  Europhys. Lett. 77, 30004 (2007).
+
+\bibitem{07EL}
+A. Szolnoki and G. Szab´o,
+\newblock {balabala.}
+\newblock  Europhys. Lett. 77, 30004 (2007).
+
+\bibitem{07EL}
+A. Szolnoki and G. Szab´o,
+\newblock {balabala.}
+\newblock  Europhys. Lett. 77, 30004 (2007).
+
+\bibitem{07EL}
+A. Szolnoki and G. Szab´o,
+\newblock {balabala.}
+\newblock  Europhys. Lett. 77, 30004 (2007).
+
+\bibitem{07EL}
+A. Szolnoki and G. Szab´o,
+\newblock {balabala.}
+\newblock  Europhys. Lett. 77, 30004 (2007).
+
+
+\end{thebibliography}Trivers RL
+
+
+
+\begin{acknowledgments}
+We wish to acknowledge the support of the author community in using
+REV\TeX{}, offering suggestions and encouragement, testing new versions,
+\dots.
+\end{acknowledgments}
+
+
+
+\nocite{*}
+\bibliography{aipsamp}% Produces the bibliography via BibTeX.
+
+\end{document}
+%
+% ****** End of file aipsamp.tex ******
